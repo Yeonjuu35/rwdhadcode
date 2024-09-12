@@ -1,0 +1,110 @@
+@charset "UTF-8";
+body, h1, h2, h3, h4, p, div, li, ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+   반응형할때
+   분기점 정하기 ( 보틍은 피그마에서 확인가능 하나 모바일버전을 분기점별 만들어주는것 은 아니다)
+   내부안의 반응형
+   외부의 반응형
+   ////////////////
+   제작노하우
+   1. 일관된 스타일부터 먼저 처리 ( 글자색, 배경색 등등 )
+   2. position부터 세팅하고 (abs, rel, fix 순이 편함 )
+   3. display 세팅한다.
+   4. 자바스크립트와 연동일 경우 클래스를 생성하고 진행한다.
+*/
+#hd {
+  background-color: black;
+  padding: 8px 0;
+}
+#hd div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+#hd div h1 {
+  max-width: 180px;
+  min-width: 26vw;
+}
+#hd div h1 a {
+  display: block;
+}
+#hd div h1 a img {
+  width: 100%;
+  display: block;
+}
+#hd div ul {
+  display: flex;
+}
+@media (max-width: 767px) {
+  #hd div ul {
+    display: block;
+    position: fixed;
+    top: 34px;
+    left: 100%;
+    width: 100%;
+    bottom: 0;
+    background-color: black;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+  }
+}
+#hd div ul li {
+  margin: 0 15px;
+  font-size: 5vw;
+}
+@media (min-width: 768px) {
+  #hd div ul li {
+    margin-right: 0;
+    margin-left: 30px;
+    font-size: 18px;
+  }
+}
+#hd div ul li a {
+  color: white;
+}
+
+#m_menu {
+  width: 28px;
+  background-color: transparent;
+  border: 0;
+}
+@media (min-width: 768px) {
+  #m_menu {
+    display: none;
+  }
+}
+#m_menu span {
+  height: 2px;
+  display: block;
+  background-color: white;
+  transition: 0.5s;
+  width: 100%;
+}
+#m_menu span:nth-child(2) {
+  margin: 5px 0;
+}
+
+#hd.active ul {
+  left: 0;
+}
+#hd.active #m_menu span:nth-child(2) {
+  width: 0;
+}

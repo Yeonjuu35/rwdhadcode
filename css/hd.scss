@@ -1,0 +1,123 @@
+body, h1, h2, h3, h4, p, div, li, ul {
+    margin: 0; padding: 0;
+}
+
+li{
+    list-style: none;
+    
+}
+a{
+    text-decoration: none;
+}
+/*
+   반응형할때
+   분기점 정하기 ( 보틍은 피그마에서 확인가능 하나 모바일버전을 분기점별 만들어주는것 은 아니다)
+   내부안의 반응형
+   외부의 반응형
+   ////////////////
+   제작노하우
+   1. 일관된 스타일부터 먼저 처리 ( 글자색, 배경색 등등 )
+   2. position부터 세팅하고 (abs, rel, fix 순이 편함 )
+   3. display 세팅한다.
+   4. 자바스크립트와 연동일 경우 클래스를 생성하고 진행한다.
+*/
+#hd{
+    background-color: black;
+    padding: 8px 0;
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width:1280px; // 이미 반응형 처리가 된 스타일 max- 관련 스타일을 많이 써야 손코딩이 적어진다.
+        margin: 0 auto; // 화면이 클때 필요한 것임
+        padding: 0 15px; // 1280이하인 상황에서 좌우에 컨텐츠가 붙는 것을 막기위해 넣어둠
+
+         h1 { 
+
+            max-width:180px; // 180보다 커지지말고 화면너비의 26%정도로 처리
+            min-width:26vw;
+            // 최대 사이즈가 180px이고 화면의 26%를 차지
+            
+                   a{
+                        // 인라인태그라서 보통의 스타일이 먹히도록 처리
+                        display: block; 
+                                  img {
+                                    width: 100%; 
+                                    // 반응형처리 완료
+                                    //  중요!!!! svg인 경우 반드시 너비, 혹은 높이
+                                    //    둘중 하나는 세팅해주어야 함
+                                    // svg 이므로 max-width 필요없음 -> 한계점을 제시하는 스타일임 -> 더 늘어나지 말라는 뜻임                                    
+                                    display: block; // 인라인태그라서 보통의 스타일이 먹히도록 처리
+                                   }
+                    }
+            }
+       
+        ul{
+            display: flex;
+          
+            @media (max-width:767px) {
+                display: block;
+                position: fixed;
+                top:34px;
+                left:100%;
+                width:100%;
+                bottom:0;
+                background-color: black;
+                transition: 0.5s; 
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 15px ;                    
+            }
+           
+             li{    
+                margin: 0 15px; 
+                font-size: 5vw;                
+
+                @media (min-width:768px) {
+                    margin-right: 0;
+                    margin-left: 30px;
+                    font-size: 18px;                                    
+                }          
+                    a {
+                        color:white
+                    }
+                 }               
+        }
+    }
+}
+#m_menu{ // 우선순위 낮추길 위해서 대비하기 위해서 depth를 줄인다.
+    width:28px;
+    background-color: transparent;
+    border:0; 
+    @media (min-width:768px) {
+        display: none;        
+    }
+    // 반응형처리가 무의미함 이미 데스크탑에서 안보이니깐
+             span{
+                height: 2px;
+                display: block;
+                background-color: white;
+                transition: 0.5s;
+                width:100%;
+                &:nth-child(2){
+                    margin: 5px 0;
+                }
+             }                
+}
+//모바일 메뉴펼침
+#hd{
+    &.active{
+        ul{
+            left:0;
+        }
+        #m_menu{
+            //여기 X모양이 나오도록 2개의 span태그를 회전해서 만들어보세요
+            //힘들면 쳇에게 처리 ( 만약 abs가 나왔다면 잘한거고 rel이 나왔다면 절대 잘한것임)
+            span:nth-child(2){
+                width:0;
+            }
+        }
+    } 
+      
+}     

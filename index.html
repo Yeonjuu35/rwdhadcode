@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/hd.css">
+    <script src="js/hd.js"></script>
+</head>
+<body>
+    <div class="d-none">
+        <h4>반응형되는 폰트<br> 
+            화면너비가 1200px 이상일때 1.5rem : 참고로 1rem 16px <br>
+            화면너비가 1200px 미만일때 calc(1.275rem + 0.3vw) // vw단위는 화면너비 <br>
+            고정크기 1.275rem + 화면너비의 0.3% 더해진값으로 <br>
+            화면너비에 따라 반응하게 되는 스타일
+        </h4>
+        <div class="mt-5">반응형 안되는 폰트</div>
+    </div>
+
+
+    <header id="hd" class="handcoding">
+        <div>
+            <h1><a href="#none"><img src="https://soroweb.co.kr/v5/images/logo.svg" alt=""></a></h1>
+            <button id="m_menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="">STORY</a></li>
+                <li><a href="">WORKS</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <section class="d-none">
+        <h2>부트스트랩으로 거의 반응형까지 처리한 케이스</h2>
+        <header class="border-bottom border-top bg-dark ">
+            <div class="container d-flex justify-content-between align-items-center">
+                <h1 class="mb-0" style="max-width:180px; min-width:26vw"><a href="#none" class="d-block">
+                    <img src="https://soroweb.co.kr/v5/images/logo.svg" class="img-fluid d-block" alt="로고"></a>
+                </h1>
+                <button id="m_menu" class="d-lg-none d-flex flex-column justify-content-between border-0 bg-transparent py-3">
+                    <span class="d-block bg-white" style="height:2px; width:20px"></span>
+                    <span class="d-block bg-white my-1" style="height:2px; width:20px"></span>
+                    <span class="d-block bg-white" style="height:2px; width:20px"></span>
+                </button>
+                <ul class="d-none d-lg-flex p-0 mb-0">
+                    <li class="m-3 "><a href="" class="text-white">STORY</a></li>
+                    <li class="m-3 "><a href="" class="text-white">WORKS</a></li>
+                    <li class="m-3 me-lg-0"><a href="" class="text-white">CONTACT</a></li>
+                </ul>
+            </div>
+        </header>
+    </section>
+   
+
+
+</body>
+</html>
